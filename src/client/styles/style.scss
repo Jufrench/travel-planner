@@ -1,0 +1,284 @@
+$heading: 'Roboto', sans-serif;
+
+body {
+    background: #f2f2f2;
+}
+
+.grillz {
+    padding: 0 12px 10px;
+    &.first {
+        .wrap {
+            border-bottom: solid 1px #bebebe;
+        }
+        @media only screen and (min-width: 1024px) {
+            border-bottom: solid 1px #bebebe;
+            .wrap {
+                border: none;
+            }
+        }
+    }
+    &.second {
+        padding-top: 12px;
+    }
+}
+
+.header {
+    // background: skyblue;
+    border-bottom: solid 2px #bebebe;
+    height: 10%;
+    font-size: 2em;
+    padding: 20px;
+    text-align: center;
+}
+
+.form {
+    // border: solid 1px red;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 24px;
+    .form-inner-wrap {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+        .label {
+            font-size: 1.25em;
+            margin-bottom: 6px;
+        }
+        .input {
+            width: 100%;
+            padding: 6px 12px;
+            font-size: 1.25em;
+            border-radius: 6px;
+            border: solid 2px #333;
+        }
+    }
+    .form-date-wrap {
+        margin-bottom: 16px;
+        .input {
+            min-height: 41px;
+        }
+        #date-input {
+            font-size: 1.5em;
+        }
+    }
+
+    .button-wrap {
+        .add-trip-button {
+            margin-bottom: 12px;
+            font-size: 1.25em;
+            border: solid 2px #333;
+            background: none;
+            padding: 12px;
+            border-radius: 6px;
+            background: #fff;
+            width: 100%;
+        }
+    }
+    @media only screen and (min-width: 1024px) {
+        flex-direction: row;
+        margin: 0;
+        justify-content: space-between;
+        .form-inner-wrap {
+            margin: 0;
+            .input {
+                padding: 12px;
+                min-height: 53px;
+            }
+        }
+        .city-wrap {
+            width: 40%;
+        }
+        .button-wrap {
+            display: flex;
+            align-items: flex-end;
+            width: 30%;
+            .add-trip-button {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.trips-section {
+    align-items: flex-start;
+    @media only screen and (min-width: 1024px) {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.trip {
+    .trip-wrap {
+        box-shadow: 0 0 7px 4px #989898;
+        padding: 0;
+        border: solid 5px #333;
+        border-radius: 6px;
+        position: relative;
+        min-height: 125px;
+        width: 100%;
+        .trip-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 6px 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            .trip-number {
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            .remove-btn {
+                padding: 0;
+                border: none;
+                background: transparent;
+                .fa-close {
+                    color: #cc0000;
+                    border-radius: 50%;
+                    padding: 2px 5px;
+                    font-size: 1.5em;
+                    transform: scale(100%);
+                    transition: transform .300s ease-in-out, color .300s ease-in-out, border .300s ease-in-out;
+                    position: relative;
+                    &:after {
+                        content: '';
+                        // background: rgba(255,255,255,0.7);
+                        border: solid 2px #cc0000;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: -1;
+                        padding: 4px 7px;
+                        border-radius: 50%;
+                        transform: scale(0);
+                        transition: transform .3s ease-in-out;
+                    }
+                    &:hover {
+                        &:after {
+                            transform: scale(100%);
+                        }
+                    }
+                }
+                &:hover {
+                    // background: none;
+                    cursor: pointer;
+                    .fa-close {
+                        transform: scale(130%);
+                        // color: #fff;
+                        // border: solid 2px #fff;
+                    }
+                }
+            }
+        }
+        .image-wrap {
+            width: 100%;
+            min-height: 150px;
+            background-position: center;
+            background-size: cover;
+            background-image: url('https://i.picsum.photos/id/455/300/200.jpg?hmac=lC2v1eMx7_tUCM8FLd1H9DbMOZD1dWG0ktHiTR9BBxQ');
+            @media only screen and (min-width: 1024px) {
+                min-height: 250px;
+            }
+        }
+        .body {
+            padding: 6px 12px;
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            border-top: solid 5px #333;
+            > * {
+            }
+            .city-country {
+                font-family: $heading;
+                line-height: 1.2;
+            }
+            .city {
+                font-weight: 700;
+                font-size: 1.75rem;
+                margin-right: 6px;
+            }
+            .country {
+                font-size: .9em;
+                text-transform: uppercase;
+            }
+            .trip-dates-wrap {
+                display: flex;
+                border-top: solid 1px #ccc;
+                border-bottom: solid 1px #ccc;
+                padding: 8px 0;
+                .depart-date {
+                    width: 50%;
+                }
+                .date-countdown {
+                    width: 50%;
+                    border-left: solid 1px #ccc;
+                    text-align: center;
+                }
+            }
+            .weather {
+                padding: 8px 0 0;
+                .temp {
+                }
+                // Forecst
+                &.forecast {
+                    .title {
+                        text-transform: capitalize;
+                        margin-bottom: 6px;
+                        .fa {
+                            margin-left: 6px;
+                        }
+                    }
+                    &.open {
+                        .title {
+                            .fa-caret-up {
+                                display: inline-block;
+                            }
+                            .fa-caret-down {
+                                display: none;
+                            }
+                        }
+                        .forecast-wrap {
+                            display: block;
+                        }
+                    }
+                    .title {
+                        .fa-caret-up {
+                            display: none;
+                        }
+                    }
+                    .forecast-wrap {
+                        display: none;
+                        .forecast-day {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 3px 0;
+                            &+ .forecast-day {
+                                border-top: solid 1px #ccc;
+                            }
+                            .fa {
+                                margin-right: 6px;
+                            }
+                            .high {
+                                min-width: 25%;
+                            }
+                            .low {
+                                min-width: 25%;
+                            }
+                            .description {
+                                min-width: 40%;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e19e5c01f.js" crossorigin="anonymous"></script>
+    <title>Travel Trip Planner</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Travel Trip Planner</h1>
+        </header>
+        <main class="main">
+            <div class="grillz first">
+                <div class="col space sm-hide md-hide lg-is-3"></div>
+                <div class="col lg-is-6 xl-is-6">
+                    <div class="wrap">
+                        <form class="form">
+                            <div class="form-inner-wrap city-wrap">
+                                <label for="city-input" class="label">Destination</label>
+                                <input id="city-input" class="input" type="text" placeholder="City">
+                            </div>
+                            <div class="form-inner-wrap form-date-wrap">
+                                <label for="date-input" class="label">Depart</label>
+                                <input id="date-input" class="input" type="date">
+                            </div>
+                            <div class="button-wrap">
+                                <button class="add-trip-button button">Add Trip</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col space sm-hide md-hide lg-is-3"></div>
+            </div>
+            <div class="grillz trips-section second">
+            </div>
+        </main>
+    </div>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>
