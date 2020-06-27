@@ -101,24 +101,27 @@ const pixabayAPI = async cityParam => {
     .then(res => res.json())
     .then(data => {
       console.log(data);
+      dataObj['imageURL'] = '';
       // const randomNum = Math.floor(Math.random() * 20)
       // dataObj['imageURL'] = data['hits'][randomNum]['webformatURL'];
-      if (data['hits'] > 0) {
+      if (data['hits'].length > 0) {
         console.log('THERE ARE IMAGES!!!')
         dataObj['imageURL'] = data['hits'][0]['webformatURL'];
       } else {
         console.log('THERE ARE NOOOO IMAGES!!!');
+        dataObj['imageURL'] = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
       }
+      // dataObj['imageURL'] = data['hits'][0]['webformatURL'];
     })
-    console.log(' ======= PIXABAY API ======');  
-    console.log(dataObj);
+    // console.log(' ======= PIXABAY API ======');  
+    // console.log(dataObj);
     return dataObj;
 }
 
 // ===== RETURN FINAL DATA ===============
 const returnFinalData = () => {
   dataObj['id'] = Math.floor(Math.random() * (199 - 100) + 100);
-  console.log(dataObj);
+  // console.log(dataObj);
   return dataObj;
 }
 
