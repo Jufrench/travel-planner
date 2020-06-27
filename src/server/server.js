@@ -93,17 +93,19 @@ const weatherbitAPI = async dataParam => {
 
 // ===== PIXABAY API ===============
 const pixabayAPI = async cityParam => {
+  console.log('===== PIXABAY API ===============');
   const pxAPIKey = process.env.PIXABAY_APIKEY;
   const urlBase = 'https://pixabay.com/api/?&safesearch=true';
 
   await fetch(`${urlBase}&key=${pxAPIKey}&q=${cityParam}`)
     .then(res => res.json())
     .then(data => {
-      // console.log(data);
-      const randomNum = Math.floor(Math.random() * 20)
+      console.log(data);
+      // const randomNum = Math.floor(Math.random() * 20)
       // console.log(data['hits'].length);
-      dataObj['imageURL'] = data['hits'][randomNum]['webformatURL'];
-      // console.log(data['hits'][0]['webformatURL']);
+      // dataObj['imageURL'] = data['hits'][randomNum]['webformatURL'];
+      dataObj['imageURL'] = data['hits'][0]['webformatURL'];
+      // console.log(data['hits'][randomNum]['webformatURL']);
       // console.log(dataObj);
     })
     console.log(' ======= PIXABAY API ======');  

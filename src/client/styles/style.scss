@@ -1,4 +1,5 @@
 $roboto: 'Roboto', sans-serif;
+$green: #11875d;
 
 body {
     background: #f2f2f2;
@@ -52,17 +53,22 @@ body {
             font-size: 1.25em;
             border-radius: 6px;
             border: solid 2px #333;
+            min-height: 53px;
         }
     }
     .city-wrap {
         position: relative;
         #city-input {
+            &:focus {
+                outline-color: $green;
+            }
             &:valid {
                 padding-bottom: 2px;
                 &+ .label-wrap {
                     padding: 3px 12px 0;
                     font-size: 12px;
                     min-height: unset;
+                    color: $green;
                 }
             }
         }
@@ -75,13 +81,14 @@ body {
             min-height: 53px;
             display: flex;
             align-items: center;
+            transition: font-size .3s ease-out, color .3s ease-out;
         }
     }
     .form-date-wrap {
         margin-bottom: 16px;
-        .input {
-            min-height: 41px;
-        }
+        // .input {
+        //     min-height: 41px;
+        // }
         #date-input {
             font-size: 1.5em;
         }
@@ -112,6 +119,9 @@ body {
         }
         .city-wrap {
             width: 40%;
+            .label-wrap {
+                min-height: 53px;
+            }
         }
         .button-wrap {
             display: flex;
@@ -119,6 +129,12 @@ body {
             width: 30%;
             .add-trip-button {
                 margin: 0;
+                box-shadow: none;
+                transition: box-shadow .2s ease-in-out;
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0 0 3px 3px #ccc;
+                }
             }
         }
     }
