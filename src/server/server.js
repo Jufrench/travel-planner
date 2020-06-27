@@ -102,11 +102,13 @@ const pixabayAPI = async cityParam => {
     .then(data => {
       console.log(data);
       // const randomNum = Math.floor(Math.random() * 20)
-      // console.log(data['hits'].length);
       // dataObj['imageURL'] = data['hits'][randomNum]['webformatURL'];
-      dataObj['imageURL'] = data['hits'][0]['webformatURL'];
-      // console.log(data['hits'][randomNum]['webformatURL']);
-      // console.log(dataObj);
+      if (data['hits'] > 0) {
+        console.log('THERE ARE IMAGES!!!')
+        dataObj['imageURL'] = data['hits'][0]['webformatURL'];
+      } else {
+        console.log('THERE ARE NOOOO IMAGES!!!');
+      }
     })
     console.log(' ======= PIXABAY API ======');  
     console.log(dataObj);
