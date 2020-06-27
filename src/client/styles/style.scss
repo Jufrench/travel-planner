@@ -1,4 +1,4 @@
-$heading: 'Roboto', sans-serif;
+$roboto: 'Roboto', sans-serif;
 
 body {
     background: #f2f2f2;
@@ -43,7 +43,8 @@ body {
         margin-bottom: 12px;
         .label {
             font-size: 1.25em;
-            margin-bottom: 6px;
+            // margin-bottom: 6px;
+            font-family: $roboto;
         }
         .input {
             width: 100%;
@@ -51,6 +52,29 @@ body {
             font-size: 1.25em;
             border-radius: 6px;
             border: solid 2px #333;
+        }
+    }
+    .city-wrap {
+        position: relative;
+        #city-input {
+            &:valid {
+                padding-bottom: 2px;
+                &+ .label-wrap {
+                    padding: 3px 12px 0;
+                    font-size: 12px;
+                    min-height: unset;
+                }
+            }
+        }
+        .label-wrap {
+            // overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            padding: 12px;
+            min-height: 53px;
+            display: flex;
+            align-items: center;
         }
     }
     .form-date-wrap {
@@ -196,7 +220,7 @@ body {
             > * {
             }
             .city-country {
-                font-family: $heading;
+                font-family: $roboto;
                 line-height: 1.2;
             }
             .city {
