@@ -1,7 +1,7 @@
 let dataObj = {};
 
 const dotenv = require('dotenv');
-dotenv.config({ path: '../../.env' });
+dotenv.config({ path: './.env' });
 
 const express = require('express');
 const path = require('path');
@@ -35,7 +35,6 @@ const geonamesAPI = async (cityParam, dateParam, weather) => {
   await fetch(`http://api.geonames.org/searchJSON?name=${cityParam}&maxRows=1&username=${username}`)
     .then(res => res.json())
     .then(data => {
-      // dataObj['city'] = data['geonames'][0]['name'];
       dataObj['city'] = cityParam;
       dataObj['country'] = data['geonames'][0]['countryName'];
       dataObj['lat'] = data['geonames'][0]['lat'];
@@ -44,8 +43,6 @@ const geonamesAPI = async (cityParam, dateParam, weather) => {
       // Had to set the weather property in here because I'm chaining the API calls &
       // the weatherbit api needs to know which type of weather to show
       dataObj['weather_to_get'] = weather;
-      // console.log('%cInside Geonames API', 'color: #D44942');
-      // console.log(dataObj);
     })
     .catch(err => console.log(err));
     console.log(' ======= GEONAMES API ======'); 
@@ -150,4 +147,5 @@ app.post('/', (req, res) => {
     .then(data => pixabayAPI(data))
     .then(() => returnFinalData())
     .then(() => res.send('Posted data received'))
+    .catch(error => console.log(error));
 });
