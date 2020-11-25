@@ -213,7 +213,7 @@ export const createTripElement = (options) => {
     }
 
     const tripEl = createElement({
-        elType: 'div',
+        elType: 'article',
         id: options.id,
         classes: ['trip col md-is-6 lg-is-6 xl-is-4']
     });
